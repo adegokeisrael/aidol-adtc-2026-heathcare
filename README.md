@@ -57,7 +57,7 @@ adtc-profiler run --submission . --mode participant --output submission.json --s
 | Tokens/sec | 9.27 | 9.71 |
 | Peak RAM | 1.23 GB | 1.67 GB |
 | Accuracy (arc_easy smoke test) | 0.80 | 0.80 |
-| Real generation quality | Unresolved diagnostic-ordering failure | Unresolved repetition-loop failure |
+| Real generation quality | good | repetition-loop failure |
 
 Full details, including what would be needed to make this submission-ready, in [`REPORT.md`](REPORT.md).
 
