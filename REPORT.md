@@ -1,6 +1,6 @@
 # Technical Report — MediGuide Patient Education & Triage Assistant
 
-**Team ID:** AIDOL
+**Team ID:** MedicMind: Offline AI for African Health Practitioners
 **Submitter:** ADEGOKE ISRAEL ADEDOLAPO
 **Domain:** Healthcare / Medical — Patient Education & Symptom Triage
 **Model:** MediGuide-1.5B-Q4_K_M
