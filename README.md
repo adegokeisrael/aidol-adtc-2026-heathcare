@@ -1,4 +1,4 @@
-# AIDOL — Health Advisor (Exploratory)
+# MedicMind: Offline AI for African Health Practitioners — Health Advisor (Exploratory)
 
 ![Status](https://img.shields.io/badge/Status-Not%20Submitted%20to%20ADTC-critical)
 ![Domain](https://img.shields.io/badge/Domain-Healthcare%20%26%20Medical-red)
@@ -14,7 +14,7 @@
 
 
 
-**Team:** AIDOL &nbsp;·&nbsp; **Submitter:** Adegoke Israel Adedolapo &nbsp;·&nbsp; **Domain explored:** Healthcare & Medical (patient education / triage support scope)
+**Team:** MedicMind: Offline AI for African Health Practitioners &nbsp;·&nbsp; **Submitter:** Adegoke Israel Adedolapo &nbsp;·&nbsp; **Domain explored:** Healthcare & Medical (patient education / triage support scope)
 
 ---
 
