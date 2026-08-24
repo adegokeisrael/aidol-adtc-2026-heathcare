@@ -1,0 +1,37 @@
+{
+  "team_id": "AIDOL",
+  "domain": "healthcare_medical",
+  "language_scope": ["en"],
+  "african_alpha_claim": true,
+  "budget_laptop_claim": true,
+  "submitter": {
+    "name": "Adegoke Israel Adedolapo",
+    "email": "adegisrael198@gmail.com",
+    "github_handle": "EYEDOL"
+  },
+  "cross_disciplinary_pairing": {
+    "discipline": "clinical_health",
+    "load_bearing": true,
+    "description": "Exploratory offline patient-education and triage-support model, developed alongside the team's primary Agriculture submission to compare domains before Gate 1. NOT the team's final ADTC 2026 competition entry — see README.md and REPORT.md for known limitations before any use of this model."
+  },
+  "test_prompts": [
+    {
+      "prompt_id": "tp_001",
+      "prompt": "A patient presents with fever, headache, and a stiff neck for two days. What are the concerning signs that would require urgent referral?"
+    },
+    {
+      "prompt_id": "tp_002",
+      "prompt": "What are the early warning signs of dehydration in a young child, and when should a caregiver seek urgent care?"
+    }
+  ],
+  "model": {
+    "name": "AIDOL-Health-Advisor-1.5B-Q5_K_M",
+    "runtime": "llama.cpp",
+    "quantization": "GGUF Q5_K_M",
+    "parameters_estimate": "1.5B",
+    "packaging": "binary_bundle"
+  },
+  "_runtime": {
+    "model_path": "model/model.gguf"
+  }
+}

@@ -1,0 +1,104 @@
+<svg viewBox="0 0 1400 1150" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#4A4A4A"/>
+    </marker>
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8C1E1E"/>
+      <stop offset="100%" stop-color="#B54747"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1400" height="1150" fill="#FBFBF8"/>
+
+  <!-- Title banner -->
+  <rect x="0" y="0" width="1400" height="100" fill="url(#headerGrad)"/>
+  <text x="700" y="38" text-anchor="middle" fill="#FFFFFF" font-size="24" font-weight="700">AIDOL — Health Advisor (Exploratory)</text>
+  <text x="700" y="65" text-anchor="middle" fill="#FBE0E0" font-size="14">Developed for domain comparison — NOT the team's ADTC 2026 submission</text>
+  <text x="700" y="87" text-anchor="middle" fill="#FBE0E0" font-size="12">See REPORT.md — Known Limitations</text>
+
+  <!-- STAGE 1 -->
+  <text x="60" y="145" font-size="16" font-weight="700" fill="#2F5233">1 — Data Sources (revised after initial mismatch)</text>
+
+  <g font-size="12">
+    <rect x="60" y="160" width="380" height="55" rx="10" fill="#F4E4E4" stroke="#8C1E1E" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="250" y="182" text-anchor="middle" font-weight="600" fill="#5A0F0F">MedMCQA / MedQA-USMLE</text>
+    <text x="250" y="200" text-anchor="middle" fill="#6B2020">Rejected — physician exam trivia, wrong register</text>
+
+    <rect x="470" y="160" width="380" height="55" rx="10" fill="#DCEBFB" stroke="#3E7CB1" stroke-width="1.5"/>
+    <text x="660" y="182" text-anchor="middle" font-weight="600" fill="#1C3D5A">MedDialog-EN-100k</text>
+    <text x="660" y="200" text-anchor="middle" fill="#3E5670">Real doctor-patient dialogue, cleaned</text>
+  </g>
+  <line x1="1290" y1="187" x2="1290" y2="187" stroke="none"/>
+
+  <line x1="660" y1="215" x2="660" y2="250" stroke="#4A4A4A" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="500" y="255" width="320" height="60" rx="10" fill="#CDE7CF" stroke="#2F5233" stroke-width="1.5"/>
+  <text x="660" y="280" text-anchor="middle" font-weight="700" fill="#1E3A20" font-size="13">Dosage-filtered + Diagnostic-Ordering</text>
+  <text x="660" y="298" text-anchor="middle" fill="#1E3A20" font-size="12">Language Filtered Training Corpus</text>
+
+  <line x1="660" y1="315" x2="660" y2="350" stroke="#4A4A4A" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- STAGE 2: Distillation + SFT (compressed) -->
+  <rect x="450" y="355" width="420" height="60" rx="10" fill="#F1E3F7" stroke="#7A3B96" stroke-width="1.5"/>
+  <text x="660" y="380" text-anchor="middle" font-weight="700" fill="#4A1F63" font-size="13">Distillation (Qwen2.5-7B teacher) + SFT (QLoRA)</text>
+  <text x="660" y="398" text-anchor="middle" fill="#5C3373" font-size="12">Identical pipeline to the submitted Agriculture model</text>
+
+  <line x1="660" y1="415" x2="660" y2="450" stroke="#4A4A4A" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="510" y="455" width="300" height="50" rx="10" fill="#D2F1EE" stroke="#1E7A72" stroke-width="1.5"/>
+  <text x="660" y="485" text-anchor="middle" font-weight="700" fill="#0F4C47" font-size="13.5">GGUF — Q4_K_M &amp; Q5_K_M</text>
+
+  <line x1="660" y1="505" x2="660" y2="540" stroke="#4A4A4A" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- STAGE 3: Evaluation results — split good/bad -->
+  <text x="60" y="570" font-size="16" font-weight="700" fill="#B5323F">2 — Evaluation: Automated Score vs. Real Behavior</text>
+
+  <rect x="60" y="585" width="620" height="90" rx="10" fill="#FADADD" stroke="#B5323F" stroke-width="1.5"/>
+  <text x="370" y="610" text-anchor="middle" font-weight="700" fill="#7A1F29" font-size="13">Automated Benchmark (arc_easy smoke test)</text>
+  <text x="370" y="630" text-anchor="middle" fill="#8A2A34" font-size="12.5">Q4_K_M: 0.80 accuracy · Q5_K_M: 0.80 accuracy</text>
+  <text x="370" y="648" text-anchor="middle" fill="#8A2A34" font-size="12.5">Both score HIGHER than the submitted Agriculture model (0.70)</text>
+  <text x="370" y="666" text-anchor="middle" fill="#1E7A2F" font-weight="700" font-size="12">Looks good in isolation</text>
+
+  <rect x="720" y="585" width="620" height="90" rx="10" fill="#F4E4E4" stroke="#8C1E1E" stroke-width="1.5"/>
+  <text x="1030" y="610" text-anchor="middle" font-weight="700" fill="#5A0F0F" font-size="13">Direct Generation Testing</text>
+  <text x="1030" y="630" text-anchor="middle" fill="#6B2020" font-size="12.5">Q4_K_M: degenerate repetition-loop output</text>
+  <text x="1030" y="648" text-anchor="middle" fill="#6B2020" font-size="12.5">Q5_K_M: recommended an invasive procedure, violating its own persona</text>
+  <text x="1030" y="666" text-anchor="middle" fill="#B01E1E" font-weight="700" font-size="12">Real, unresolved safety failures</text>
+
+  <line x1="370" y1="675" x2="370" y2="710" stroke="#4A4A4A" stroke-width="1.5"/>
+  <line x1="1030" y1="675" x2="1030" y2="710" stroke="#4A4A4A" stroke-width="1.5"/>
+  <line x1="370" y1="710" x2="700" y2="710" stroke="#4A4A4A" stroke-width="1.5"/>
+  <line x1="1030" y1="710" x2="700" y2="710" stroke="#4A4A4A" stroke-width="1.5"/>
+  <line x1="700" y1="710" x2="700" y2="745" stroke="#4A4A4A" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- FINAL: NOT SUBMITTED -->
+  <rect x="450" y="750" width="500" height="100" rx="12" fill="url(#headerGrad)"/>
+  <text x="700" y="785" text-anchor="middle" fill="#FFFFFF" font-weight="700" font-size="17">Decision: NOT Submitted to ADTC 2026</text>
+  <text x="700" y="810" text-anchor="middle" fill="#FBE0E0" font-size="13">Real generation failures outweigh a favorable automated score</text>
+  <text x="700" y="830" text-anchor="middle" fill="#FBE0E0" font-size="12">Team's official entry: Agriculture domain (see aidol-agri-advisor)</text>
+
+  <!-- Legend -->
+  <g font-size="12">
+    <rect x="60" y="900" width="18" height="18" rx="4" fill="#F4E4E4" stroke="#8C1E1E"/>
+    <text x="85" y="914" fill="#333333">Rejected component</text>
+
+    <rect x="270" y="900" width="18" height="18" rx="4" fill="#DCEBFB" stroke="#3E7CB1"/>
+    <text x="295" y="914" fill="#333333">Data source (used)</text>
+
+    <rect x="480" y="900" width="18" height="18" rx="4" fill="#F1E3F7" stroke="#7A3B96"/>
+    <text x="505" y="914" fill="#333333">Distillation / SFT</text>
+
+    <rect x="680" y="900" width="18" height="18" rx="4" fill="#D2F1EE" stroke="#1E7A72"/>
+    <text x="705" y="914" fill="#333333">Quantization</text>
+
+    <rect x="860" y="900" width="18" height="18" rx="4" fill="#FADADD" stroke="#B5323F"/>
+    <text x="885" y="914" fill="#333333">Automated eval (misleading)</text>
+
+    <rect x="1120" y="900" width="18" height="18" rx="4" fill="#8C1E1E"/>
+    <text x="1145" y="914" fill="#333333">Rejection decision</text>
+  </g>
+
+  <text x="700" y="970" text-anchor="middle" fill="#999999" font-size="12">Africa Deep Tech Challenge 2026 — Team AIDOL — Exploratory Healthcare Development</text>
+  <text x="700" y="990" text-anchor="middle" fill="#B0B0B0" font-size="11">Published for transparency. See REPORT.md before any use of this model.</text>
+</svg>
