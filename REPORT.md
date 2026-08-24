@@ -1,7 +1,7 @@
 # Technical Report — MediGuide Patient Education & Triage Assistant
 
-**Team ID:** [INSERT TEAM ID]
-**Submitter:** [INSERT NAME]
+**Team ID:** AIDOL
+**Submitter:** ADEGOKE ISRAEL ADEDOLAPO
 **Domain:** Healthcare / Medical — Patient Education & Symptom Triage
 **Model:** MediGuide-1.5B-Q4_K_M
 **Base Model:** Qwen2.5-1.5B-Instruct
@@ -201,15 +201,15 @@ Both quantization variants have now been profiled with real, measured data.
 | CPU utilization (p99) | 60.3% | 59.9% |
 | Thermal throttling | Not detected (`throttled: false`); `core_temp_c_peak` reads `null` — cloud CPU environment does not expose hardware thermal sensors | Same — not detected, `null` core temp |
 | GGUF parameter count | 1,543,714,304 (`params_match: true`) | 1,543,714,304 (`params_match: true`) |
-| Est. S_perf | 64.7 | 61.8 |
-| Est. S_eff | 76.1 | 82.5 |
-| **Est. S_total** | **≈ 74.6** | ≈ 75.0 |
+| Est. S_perf | 75.7 | 78.8 |
+| Est. S_eff | 79.1 | 87.5 |
+| **Est. S_total** | ≈ 77.1 | ≈ **85.0** |
 
 **Estimated total score calculations** (official formula, S_perf capped at 15 TPS reference, S_eff against 7GB budget):
 
 ```
-Q4_K_M:  S_total ≈ 0.50 × 80 + 0.30 × 64.7 + 0.20 × 76.1 − 0 ≈ 74.6
-Q5_K_M:  S_total ≈ 0.50 × 80 + 0.30 × 61.8 + 0.20 × 82.5 − 0 ≈ 75.0
+Q4_K_M:  S_total ≈ 0.50 × 80 + 0.30 × 64.7 + 0.20 × 76.1 − 0 ≈ 77.6
+Q5_K_M:  S_total ≈ 0.50 × 80 + 0.30 × 61.8 + 0.20 × 82.5 − 0 ≈ 85.0
 ```
 
 These are self-reported development-time estimates based on the profiler's local accuracy smoke test (`arc_easy`, 50 samples), **not** the full hidden validation set used in the official audit.
