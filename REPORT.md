@@ -7,6 +7,7 @@
 **Base Model:** Qwen2.5-1.5B-Instruct
 **Runtime:** llama.cpp (GGUF, CPU-only)
 **Date:** August 2026
+
 ---
 
 ## Table of Contents
