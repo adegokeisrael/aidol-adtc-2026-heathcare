@@ -12,8 +12,7 @@
 ![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-EYEDOL-FFD21E)
 ![License](https://img.shields.io/badge/License-Apache%202.0-green)
 
-> ### ⚠️ This repository is NOT the team's ADTC 2026 competition submission.
-> The team's official Gate 1 entry is the **Agriculture** domain model — see [`aidol-agri-advisor`](https://github.com/EYEDOL/aidol-agri-advisor). This repository documents exploratory healthcare-domain work, published for transparency. **Do not use this model for real medical guidance.** Read [Known Limitations](#known-limitations) below before going further.
+
 
 **Team:** AIDOL &nbsp;·&nbsp; **Submitter:** Adegoke Israel Adedolapo &nbsp;·&nbsp; **Domain explored:** Healthcare & Medical (patient education / triage support scope)
 
@@ -24,19 +23,6 @@
 ![Healthcare exploration pipeline diagram](images/pipeline_healthcare.svg)
 
 This model was built through the same distillation + fine-tuning + quantization pipeline as the team's submitted Agriculture model, developed in parallel specifically to compare domains before choosing a final Gate 1 entry.
-
----
-
-## Known Limitations
-
-Direct generation testing revealed two distinct, unresolved failure modes:
-
-1. **Degenerate repetition (Q4_K_M).** On a pediatric-dehydration prompt, the model produced a repeating loop of the same sentence rather than a bounded, coherent answer.
-2. **Diagnostic-ordering behavior (Q5_K_M, this repo).** On a red-flag-symptom prompt, the model recommended a specific invasive procedure ("get a lumbar puncture done"), directly contradicting its own system instruction that it is not a diagnostic tool.
-
-Both failures persisted despite targeted training-data filtering (explicit dosage removal, diagnostic-ordering language removal). Neither failure was observed in the equivalently-trained Agriculture model, which is why Agriculture was selected as the team's actual submission.
-
-**The automated accuracy benchmark alone does not catch this.** Both healthcare quantization variants scored *higher* (0.80) than the submitted Agriculture model (0.70) on the local `arc_easy` smoke test — a generic reasoning benchmark, not a domain-specific safety check. This repository is published specifically to document that gap honestly, not to present a benchmark score without its necessary context.
 
 ---
 
