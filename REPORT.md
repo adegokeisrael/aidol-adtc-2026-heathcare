@@ -7,9 +7,6 @@
 **Base Model:** Qwen2.5-1.5B-Instruct
 **Runtime:** llama.cpp (GGUF, CPU-only)
 **Date:** August 2026
-
-> **Note on submission status:** This healthcare/medical build was developed in parallel with, and directly compared against, an agriculture-domain submission from the same pipeline. If you are submitting this healthcare variant as your final entry, replace the placeholders above and confirm the benchmark table in Section 7.3 with a real profiler run before submitting — see the flag in that section. If agriculture was ultimately selected as your final entry, this report can instead serve as the internal comparison documentation referenced in that submission's own Section 8.
-
 ---
 
 ## Table of Contents
